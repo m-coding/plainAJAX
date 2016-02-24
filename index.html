@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Demo</title>
+   <script src="plainAJAX.js"></script>
+</head>
+<body>
+   <h1>Demo using ipinfo.io</h1>
+
+   <p>See <a href="http://ipinfo.io/developers">http://ipinfo.io/developers</a></p>
+
+   <h2>Your IP Info</h2>
+
+   <div id="content"></div>
+
+   <h3>Code</h3>
+
+   <pre>
+   AJAX.request("http://ipinfo.io/json","GET",null,function(response){
+       var result = "";
+
+       for (var property in response) {
+           result += property + ": " + response[property] + "<br>";
+       }
+
+       document.getElementById("content").innerHTML = result;
+   },function(){
+       document.getElementById("content").innerHTML = "AJAX request failed."
+   });
+   </pre>
+
+   <script>
+   AJAX.request("http://ipinfo.io/json","GET",null,function(response){
+       var result = "";
+
+       for (var property in response) {
+           result += property + ": " + response[property] + "<br>";
+       }
+
+       document.getElementById("content").innerHTML = result;
+   },function(){
+       document.getElementById("content").innerHTML = "AJAX request failed."
+   });
+   </script>
+
+</body>
+</html>
